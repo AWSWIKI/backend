@@ -29,7 +29,7 @@ public class NoteService {
         return noteRepository.findAll();
     }
 
-    public Note findById(int id) {
-        return noteRepository.findById(id);
+    public Note findByIndex(int id) {
+        return noteRepository.findByIndex(id);
     }
 }

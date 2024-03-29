@@ -24,7 +24,7 @@ public class NoteController {
 
     @GetMapping("/note/{id}")
     public Note getNote(@PathVariable int id) {
-        return noteService.findById(id);
+        return noteService.findByIndex(id);
     }
 
     /**

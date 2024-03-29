@@ -11,5 +11,5 @@ import java.util.List;
 public interface JobRepository extends MongoRepository<Job, String> {
     List<Job> findAll();
 
-    Job findById(int id);
+    Job findByIndex(int id);
 }

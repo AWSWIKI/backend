@@ -23,7 +23,7 @@ public class JobController {
 
     @GetMapping("/job/{id}")
     public Job getJob(@PathVariable int id) {
-        return jobService.findById(id);
+        return jobService.findByIndex(id);
     }
 
     /**

@@ -29,7 +29,7 @@ public class JobService {
         return save.getIndex();
     }
 
-    public Job findById(int id) {
-        return jobRepository.findById(id);
+    public Job findByIndex(int id) {
+        return jobRepository.findByIndex(id);
     }
 }

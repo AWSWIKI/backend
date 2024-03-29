@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -28,11 +29,20 @@ public class PhotoService {
         return save.getIndex();
     }
 
-    public Photo findById(int id) {
-        return photoRepository.findById(id);
+    public Photo findByIndex(int id) {
+        return photoRepository.findByIndex(id);
     }
 
     public List<Photo> findByDate(String date) {
-        return photoRepository.findByDate(date);
+        List<Photo> photos=photoRepository.findAll();
+        List<Photo> result = new ArrayList<>();
+        for (int i = 0; i < photos.size(); i++) {
+            if (photos.get(i).getDate().contains(date)) {
+                result.add(photos.get(i));
+            }
+        }
+
+
+        return result;
     }
 }

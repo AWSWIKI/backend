@@ -23,10 +23,10 @@ public class PhotoController {
 
     @GetMapping("/photo/{id}")
     public Photo getPhoto(@PathVariable int id) {
-        return photoService.findById(id);
+        return photoService.findByIndex(id);
     }
 
-    @GetMapping("/photo/{date}")
+    @GetMapping("/photo/date/{date}")
     public List<Photo> getPhotoByDate(@PathVariable String date) {
         return photoService.findByDate(date);
     }

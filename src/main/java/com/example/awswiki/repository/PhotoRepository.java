@@ -10,7 +10,7 @@ import java.util.List;
 public interface PhotoRepository extends MongoRepository<Photo, String> {
     List<Photo> findAll();
 
-    Photo findById(int id);
+    Photo findByIndex(int id);
 
     List<Photo> findByDate(String date);
 }

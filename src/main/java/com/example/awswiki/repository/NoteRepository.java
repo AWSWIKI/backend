@@ -10,5 +10,5 @@ import java.util.List;
 @EnableMongoRepositories
 public interface NoteRepository extends MongoRepository<Note, String> {
     List<Note> findAll();
-    Note findById(int id);
+    Note findByIndex(int id);
 }
