@@ -1,5 +1,6 @@
 spring:
-   data:
-     mongodb:
-       uri : mongodb://localhost:27017
-       database: acswiki
+  profiles:
+    active: ${profile}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

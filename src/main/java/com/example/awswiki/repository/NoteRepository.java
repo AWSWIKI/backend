@@ -1,6 +1,6 @@
 package com.example.awswiki.repository;
 
-import com.example.awswiki.domain.Note;
+import com.example.awswiki.domain.note.Note;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
