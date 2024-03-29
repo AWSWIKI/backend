@@ -5,10 +5,7 @@ import com.example.awswiki.domain.note.dto.NoteRequestDto.NoteReqInfo;
 import com.example.awswiki.service.NoteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -23,6 +20,11 @@ public class NoteController {
     @GetMapping("/note")
     public List<Note> getAllNote() {
         return noteService.findAll();
+    }
+
+    @GetMapping("/note/{id}")
+    public Note getNote(@PathVariable int id) {
+        return noteService.findById(id);
     }
 
     /**

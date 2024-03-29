@@ -9,4 +9,8 @@ import java.util.List;
 @EnableMongoRepositories
 public interface PhotoRepository extends MongoRepository<Photo, String> {
     List<Photo> findAll();
+
+    Photo findById(int id);
+
+    List<Photo> findByDate(String date);
 }

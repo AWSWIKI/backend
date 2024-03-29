@@ -10,4 +10,6 @@ import java.util.List;
 @EnableMongoRepositories
 public interface JobRepository extends MongoRepository<Job, String> {
     List<Job> findAll();
+
+    Job findById(int id);
 }

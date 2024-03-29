@@ -28,4 +28,8 @@ public class NoteService {
     public List<Note> findAll() {
         return noteRepository.findAll();
     }
+
+    public Note findById(int id) {
+        return noteRepository.findById(id);
+    }
 }
