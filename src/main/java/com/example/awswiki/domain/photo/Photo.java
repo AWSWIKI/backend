@@ -19,12 +19,12 @@ public class Photo {
     @Id
     private String id;
     private int index;
-    private String date;
+    private String 날짜;
     private String 이미지;
     public Photo(int count, String imageUrl){
         this.index = count+1;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        this.date = LocalDateTime.now().format(formatter);
+        this.날짜 = LocalDateTime.now().format(formatter);
         this.이미지 = imageUrl;
     }
 }
