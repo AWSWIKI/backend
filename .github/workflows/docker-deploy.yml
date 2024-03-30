@@ -71,5 +71,5 @@ jobs:
            sudo docker pull parksewoong/awswiki:latest
            sudo docker compose down
            sudo docker compose build --no-cache
-           sudo docker compose run
+           sudo docker compose up -d
            
