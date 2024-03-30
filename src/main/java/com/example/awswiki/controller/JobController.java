@@ -16,6 +16,9 @@ import java.util.List;
 public class JobController {
     private final JobService jobService;
 
+    /**
+     * 모든 거 출력
+     */
     @GetMapping("/job")
     public List<Job> getAllJob() {
         return jobService.findAll();
