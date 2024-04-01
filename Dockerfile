@@ -8,4 +8,5 @@ RUN gradle build --no-daemon --stacktrace
 # 두 번째 스테이지에서는 경량 베이스 이미지 사용
 FROM openjdk:17-jdk-alpine
 COPY --from=build /home/gradle/src/build/libs/*.jar acswiki.jar
+ENV TZ Asia/Seoul
 CMD ["java", "-jar", "-Xmx512M", "-Dspring.profiles.active=main", "acswiki.jar"]
