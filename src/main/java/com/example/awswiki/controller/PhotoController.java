@@ -14,6 +14,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/api")
 public class PhotoController {
     private final PhotoService photoService;
     @GetMapping("/photo")
