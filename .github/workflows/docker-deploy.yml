@@ -50,7 +50,7 @@ jobs:
         
       # Docker
     - name: 도커 이미지 빌드
-      run: docker build -t parksewoong/awswiki:latest .
+      run: docker build -t parksewoong/acswiki:latest .
 
     - name: Docker - Login to DockerHub
       uses: docker/login-action@v2

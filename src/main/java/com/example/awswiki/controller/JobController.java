@@ -20,7 +20,6 @@ public class JobController {
     private final JobService jobService;
     private static final Logger logger = LoggerFactory.getLogger(JobController.class);
 
-
     /**
      * 모든 거 출력
      */
