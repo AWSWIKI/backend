@@ -31,6 +31,7 @@ public class JobController {
 
     @GetMapping("/job/{id}")
     public Job getJob(@PathVariable int id) {
+        logger.info("Responding with body: {}", "특정 직업/취업 정보 출력");
         return jobService.findByIndex(id);
     }
 
@@ -40,6 +41,7 @@ public class JobController {
     @PostMapping("job")
     public ResponseEntity<Integer> insertJob(@RequestPart(value = "images", required = false) List<MultipartFile> multipartFile,
                                               @RequestPart(value = "JobReqInfo") JobRequestDto.JobReqInfo jobReqInfo) throws IOException {
+        logger.info("Responding with body: {}", "직업/취업 정보 저장");
         return ResponseEntity.ok(jobService.saveJob(multipartFile, jobReqInfo));
     }
 }
