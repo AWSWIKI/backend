@@ -59,17 +59,17 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         
     - name: Docker Hub 퍼블리시
-      run: docker push parksewoong/awswiki:latest
+      run: docker push parksewoong/acswiki:back
 
-    - name: Depoly in AWS ec2
-      uses: appleboy/ssh-action@master
-      with:
-         host: ${{ secrets.EC2_HOST }}
-         username: ${{ secrets.SSH_USERNAME }}
-         key: ${{ secrets.SSH_KEY }}
-         script: | 
-           sudo docker pull parksewoong/awswiki:latest
-           sudo docker compose down
-           sudo docker compose build --no-cache
-           sudo docker compose up -d
+#    - name: Depoly in AWS ec2
+#      uses: appleboy/ssh-action@master
+#      with:
+#         host: ${{ secrets.EC2_HOST }}
+#         username: ${{ secrets.SSH_USERNAME }}
+#         key: ${{ secrets.SSH_KEY }}
+#         script: |
+#           sudo docker pull parksewoong/awswiki:latest
+#           sudo docker compose down
+#           sudo docker compose build --no-cache
+#           sudo docker compose up -d
            

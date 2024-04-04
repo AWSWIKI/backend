@@ -4,6 +4,8 @@ import com.example.awswiki.domain.job.Job;
 import com.example.awswiki.domain.job.dto.JobRequestDto;
 import com.example.awswiki.service.JobService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,13 +18,16 @@ import java.util.List;
 @RequestMapping("/api")
 public class JobController {
     private final JobService jobService;
+    private static final Logger logger = LoggerFactory.getLogger(JobController.class);
+
 
     /**
      * 모든 거 출력
      */
     @GetMapping("/job")
-    public List<Job> getAllJob() {
-        return jobService.findAll();
+    public ResponseEntity<List<Job>> getAllJob() {
+        logger.info("Responding with body: {}", "모든 직업/취업 정보 출력");
+        return ResponseEntity.ok(jobService.findAll());
     }
 
     @GetMapping("/job/{id}")
