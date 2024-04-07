@@ -7,6 +7,8 @@ import com.example.awswiki.domain.job.dto.JobRequestDto;
 import com.example.awswiki.repository.JobRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -25,7 +27,14 @@ public class JobService {
     private final S3Service s3Service;
 
     public List<Job> findAll() {
-        return jobRepository.findAll();
+        List<Job> all = jobRepository.findAll();
+        all.sort((j1, j2) -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDate date1 = LocalDate.parse(j1.get날짜(), formatter);
+            LocalDate date2 = LocalDate.parse(j2.get날짜(), formatter);
+            return date2.compareTo(date1); // 내림차순 정렬
+        });
+        return all;
     }
 
     public Integer saveJob(List<MultipartFile> multipartFile, JobRequestDto.JobReqInfo jobReqInfo) {

@@ -4,6 +4,8 @@ import com.example.awswiki.config.S3.S3Service;
 import com.example.awswiki.config.S3.dto.S3Result;
 import com.example.awswiki.domain.photo.Photo;
 import com.example.awswiki.repository.PhotoRepository;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,7 +20,14 @@ public class PhotoService {
     private final S3Service s3Service;
 
     public List<Photo> findAll() {
-        return photoRepository.findAll();
+        List<Photo> all = photoRepository.findAll();
+        all.sort((j1, j2) -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDate date1 = LocalDate.parse(j1.getDate(), formatter);
+            LocalDate date2 = LocalDate.parse(j2.getDate(), formatter);
+            return date2.compareTo(date1); // 내림차순 정렬
+        });
+        return all;
     }
 
     public Integer savePhoto(List<MultipartFile> multipartFile) {
@@ -41,8 +50,6 @@ public class PhotoService {
                 result.add(photos.get(i));
             }
         }
-
-
         return result;
     }
 }
